@@ -1,21 +1,6 @@
 # ==============================================================
-# ~/.zshrc — macOS + Powerlevel10k + Bun + Autosuggestions + Neofetch
+# ~/.zshrc — macOS + Starship + Bun + Autosuggestions + Neofetch
 # ==============================================================
-
-# --- Disable Powerlevel10k warning output ---
-# (silences the instant prompt console warning)
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-# --- Powerlevel10k instant prompt (keep at top) ---
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# --- Load Powerlevel10k ---
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# --- Load Powerlevel10k configuration ---
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # --- Plugins and environment setup ---
 # zsh-autosuggestions
@@ -36,3 +21,4 @@ neofetch_once() {
   fi
 }
 add-zsh-hook -Uz precmd neofetch_once
+eval "$(starship init zsh)"
